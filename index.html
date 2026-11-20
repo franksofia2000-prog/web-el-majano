@@ -11,7 +11,7 @@
 <meta property="og:locale" content="es_ES">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=Karla:wght@400;500;700&display=swap" rel="stylesheet">
-<script src="https://cdn.tailwindcss.com/3.4.17"></script>
+<script src="https://cdn.tailwindcss.com"></script>
 <script>tailwind.config={theme:{extend:{colors:{carbon:'#1b1816',brasa:'#e4631c',oro:'#d9a441',hueso:'#f6efe3',azul:'#1f3fb4'},fontFamily:{slab:['"Alfa Slab One"','Georgia','serif'],sans:['Karla','system-ui','sans-serif']}}}}</script>
 <style>
 html{scroll-behavior:smooth;scroll-padding-top:72px}
@@ -55,10 +55,10 @@ html{scroll-behavior:smooth;scroll-padding-top:72px}
 
 <main>
 <section id="inicio" class="relative h-[100svh] min-h-[560px] overflow-hidden bg-carbon text-hueso" aria-roledescription="carrusel" aria-label="Platos destacados">
- <div id="slides" class="absolute inset-0"></div>
+ <div id="slides" class="absolute inset-0" aria-live="polite" aria-atomic="false"></div>
  <button id="prev" class="absolute left-3 top-1/2 z-20 -translate-y-1/2 rounded-full bg-carbon/60 p-3 hover:bg-brasa" aria-label="Diapositiva anterior"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><path d="M15 5l-7 7 7 7"/></svg></button>
  <button id="next" class="absolute right-3 top-1/2 z-20 -translate-y-1/2 rounded-full bg-carbon/60 p-3 hover:bg-brasa" aria-label="Diapositiva siguiente"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><path d="M9 5l7 7-7 7"/></svg></button>
- <div id="dots" class="absolute bottom-5 left-0 right-0 z-20 flex justify-center gap-2" aria-label="Seleccionar diapositiva"></div>
+ <div id="dots" class="absolute bottom-5 left-0 right-0 z-20 flex justify-center gap-2"></div>
 </section>
 
 <section id="menu" class="mx-auto max-w-5xl px-4 py-20">
@@ -122,8 +122,10 @@ html{scroll-behavior:smooth;scroll-padding-top:72px}
 <footer class="bg-black px-4 py-12 text-hueso/80">
  <div class="mx-auto grid max-w-6xl gap-8 md:grid-cols-3">
   <div><p class="font-slab text-2xl text-oro">El Majano</p><p class="mt-2 text-sm">Restaurante-mesón de barbacoa y grillé, desde 1996. Terraza interior y exterior, eventos y heladería en temporada.</p></div>
-  <div><p class="font-bold text-hueso">Dirección y horario</p><p class="mt-2 text-sm">Calle Sancho Panza, 5, Pedro Muñoz (Ciudad Real)<br>Miércoles a domingo, 16:00–02:00<br>Cerrado lunes y martes</p><p class="mt-2 text-sm">Teléfono:
-<a class="underline" href="tel:+34663430971">663 43 09 71</a></p></div>
+  <div><p class="font-bold text-hueso">Dirección y horario</p><p class="mt-2 text-sm">Calle Sancho Panza, 5, Pedro Muñoz (Ciudad Real)<br>Miércoles a domingo, 16:00–02:00<br>Cerrado lunes y martes</p><p class="mt-2 text-sm">
+Teléfono:
+<a class="underline" href="tel:+34663430971">663 43 09 71</a>
+</p></div>
   <div><p class="font-bold text-hueso">Síguenos</p><div class="mt-2 flex gap-4 text-sm"><a class="underline hover:text-oro" href="https://www.instagram.com/meson_majano/" target="_blank" rel="noopener">Instagram</a><a id="fb" class="hidden underline hover:text-oro" target="_blank" rel="noopener">Facebook</a></div></div>
  </div>
  <p class="mt-10 text-center text-xs text-hueso/50">© 2026 Mesón El Majano</p>
@@ -135,6 +137,8 @@ html{scroll-behavior:smooth;scroll-padding-top:72px}
 'use strict';
 const WA='34663430971', FB='https://www.facebook.com/p/Jesus-Meson-Majano-100063541002333';
 const $=s=>document.querySelector(s), el=(t,c,h)=>{const e=document.createElement(t);if(c)e.className=c;if(h!=null)e.innerHTML=h;return e};
+// Las rutas relativas se resuelven desde index.html en la raíz del repositorio.
+document.addEventListener('error',e=>{if(e.target instanceof HTMLImageElement)console.error('No se pudo cargar la imagen:',e.target.getAttribute('src'));},true);
 $('#wa').href='https://wa.me/'+WA+'?text='+encodeURIComponent('Hola, quisiera información sobre Mesón El Majano.');
 if(FB){const f=$('#fb');f.href=FB;f.classList.remove('hidden')}
 const bg=$('#burger'),mn=$('#mnav');
@@ -316,7 +320,7 @@ const G=[
 const gl=$('#gal');
 G.forEach(([f,t,i])=>{
  const b=el('button','group relative aspect-square overflow-hidden rounded-xl text-left');b.type='button';b.setAttribute('aria-expanded','false');
- b.innerHTML=`<img src="imagenes/${f}.jpg" alt="${t}" loading="lazy" class="h-full w-full object-cover transition group-hover:scale-105"><span class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/90 to-transparent p-3 font-bold">${t}</span><span class="ov absolute inset-0 flex translate-y-full flex-col justify-center bg-carbon/90 p-4 transition group-hover:translate-y-0"><strong class="text-oro">${t}</strong><span class="mt-1 text-sm">${i}</span></span>`;
+ b.innerHTML=`<img src="imagenes/${f}.jpg" alt="${t}" loading="lazy" class="h-full w-full object-cover transition group-hover:scale-105"><span class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/90 to-transparent p-3 font-bold">${t}</span><span class="ov absolute inset-0 flex translate-y-full flex-col justify-center bg-carbon/90 p-4 transition"><strong class="text-oro">${t}</strong><span class="mt-1 text-sm">${i}</span></span>`;
  b.onclick=()=>{
   document.querySelectorAll('#gal button').forEach(card=>{
    if(card!==b){
@@ -325,13 +329,8 @@ G.forEach(([f,t,i])=>{
    }
   });
   const abierto=b.getAttribute('aria-expanded')==='true';
-  if(abierto){
-   b.setAttribute('aria-expanded','false');
-   b.querySelector('.ov').classList.add('translate-y-full');
-  }else{
-   b.setAttribute('aria-expanded','true');
-   b.querySelector('.ov').classList.remove('translate-y-full');
-  }
+  b.setAttribute('aria-expanded',String(!abierto));
+  b.querySelector('.ov')?.classList.toggle('translate-y-full',abierto);
  };
  gl.append(b);
 });
@@ -339,7 +338,7 @@ G.forEach(([f,t,i])=>{
 /* ---------- Reservas ---------- */
 const pp=$('#pp'),hr=$('#hr'),er=$('#er'),ok=$('#ok');
 for(let i=1;i<=12;i++)pp.add(new Option(i+(i===1?' persona':' personas'),i));
-const hours=[];for(let m=16*60;m<=25*60;m+=30){const h=Math.floor(m/60)%24,mm=m%60;hours.push({m,t:String(h).padStart(2,'0')+':'+String(mm).padStart(2,'0')})}
+const hours=[];for(let m=16*60;m<=26*60;m+=30){const h=Math.floor(m/60)%24,mm=m%60;hours.push({m,t:String(h).padStart(2,'0')+':'+String(mm).padStart(2,'0')})}
 const today=new Date();today.setHours(0,0,0,0);
 let cy=today.getFullYear(),cmo=today.getMonth(),sel=null;
 const MES=['enero','febrero','marzo','abril','mayo','junio','julio','agosto','septiembre','octubre','noviembre','diciembre'];
