@@ -5,15 +5,17 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Mesón El Majano · Barbacoa y grillé en Pedro Muñoz desde 1996</title>
 <meta name="description" content="Restaurante-mesón de barbacoa y grillé en Pedro Muñoz (Ciudad Real). Brasa, pizzas, hamburguesas y heladería. Reserva tu mesa por WhatsApp.">
-<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=Karla:wght@400;500;700&display=swap" rel="stylesheet">
-<script src="https://cdn.tailwindcss.com/3.4.17"></script>
+<link rel="preconnect" href="https://googleapis.com"><link rel="preconnect" href="https://gstatic.com" crossorigin>
+<link href="https://googleapis.com/css2?family=Alfa+Slab+One&family=Karla:wght@400;500;700&display=swap" rel="stylesheet">
+<script src="https://tailwindcss.com"></script>
 <script>tailwind.config={theme:{extend:{colors:{carbon:'#1b1816',brasa:'#e4631c',oro:'#d9a441',hueso:'#f6efe3',azul:'#1f3fb4'},fontFamily:{slab:['"Alfa Slab One"','Georgia','serif'],sans:['Karla','system-ui','sans-serif']}}}}</script>
 <style>
 html{scroll-behavior:smooth;scroll-padding-top:72px}
 .sl{opacity:0;transition:opacity .8s;pointer-events:none}.sl.on{opacity:1;pointer-events:auto}
 .day:disabled{opacity:.3;cursor:not-allowed}
 :focus-visible{outline:3px solid #d9a441;outline-offset:2px}
+.gal-card.is-open .ov{transform:translateY(0)}
+@media (hover:hover){.gal-card:hover .ov{transform:translateY(0)}.gal-card:hover img{transform:scale(1.05)}}
 @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.sl{transition:none}}
 </style>
 </head>
@@ -53,7 +55,7 @@ html{scroll-behavior:smooth;scroll-padding-top:72px}
 <section id="galeria" class="bg-carbon px-4 py-20 text-hueso">
  <div class="mx-auto max-w-6xl">
   <h2 class="font-slab text-4xl sm:text-5xl">Así se prepara</h2>
-  <p class="mt-2 max-w-prose text-hueso/70">Toca o pasa el cursor sobre cada foto para ver cómo se elabora.</p>
+  <p class="mt-2 max-w-prose text-hueso/70">Toca cada foto para ver cómo se elabora y vuelve a tocar para cerrarla.</p>
   <div id="gal" class="mt-8 grid grid-cols-2 gap-3 md:grid-cols-3 lg:grid-cols-4"></div>
  </div>
 </section>
@@ -93,9 +95,9 @@ html{scroll-behavior:smooth;scroll-padding-top:72px}
    <h2 class="font-slab text-4xl sm:text-5xl">Cómo llegar</h2>
    <p class="mt-3">Calle Sancho Panza, 5<br>13620 Pedro Muñoz (Ciudad Real)</p>
    <p class="mt-3 text-hueso/80">Miércoles a domingo, de 16:00 a 02:00.</p>
-   <a href="https://www.google.com/maps/dir/?api=1&destination=Mes%C3%B3n+Majano%2C+C.+Sancho+Panza%2C+5%2C+13620+Pedro+Mu%C3%B1oz%2C+Cdad.+Real" target="_blank" rel="noopener" class="mt-6 inline-block rounded-full bg-oro px-6 py-3 font-bold text-carbon hover:bg-brasa hover:text-white">Cómo llegar en Google Maps</a>
+   <a href="https://google.com" target="_blank" rel="noopener" class="mt-6 inline-block rounded-full bg-oro px-6 py-3 font-bold text-carbon hover:bg-brasa hover:text-white">Cómo llegar en Google Maps</a>
   </div>
-  <iframe title="Mapa de Mesón Majano" class="h-72 w-full rounded-2xl border-0 md:h-96" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://www.google.com/maps?q=Mes%C3%B3n+Majano%2C+C.+Sancho+Panza%2C+5%2C+13620+Pedro+Mu%C3%B1oz&output=embed"></iframe>
+  <iframe title="Mapa de Mesón Majano" class="h-72 w-full rounded-2xl border-0 md:h-96" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://google.com"></iframe>
  </div>
 </section>
 </main>
@@ -103,246 +105,9 @@ html{scroll-behavior:smooth;scroll-padding-top:72px}
 <footer class="bg-black px-4 py-12 text-hueso/80">
  <div class="mx-auto grid max-w-6xl gap-8 md:grid-cols-3">
   <div><p class="font-slab text-2xl text-oro">El Majano</p><p class="mt-2 text-sm">Restaurante-mesón de barbacoa y grillé, desde 1996. Terraza interior y exterior, eventos y heladería en temporada.</p></div>
-  <div><p class="font-bold text-hueso">Dirección y horario</p><p class="mt-2 text-sm">Calle Sancho Panza, 5, Pedro Muñoz (Ciudad Real)<br>Miércoles a domingo, 16:00–02:00<br>Cerrado lunes y martes</p><p class="mt-2 text-sm">Teléfonos: <a class="underline" href="tel:+34926586282">926 586 282</a> · <a class="underline" href="tel:+34629688310">629 688 310</a></p></div>
-  <div><p class="font-bold text-hueso">Síguenos</p><div class="mt-2 flex gap-4 text-sm"><a class="underline hover:text-oro" href="https://www.instagram.com/meson_majano/" target="_blank" rel="noopener">Instagram</a><a id="fb" class="hidden underline hover:text-oro" target="_blank" rel="noopener">Facebook</a></div></div>
+  <div><p class="font-bold text-hueso">Dirección y horario</p><p class="mt-2 text-sm">Calle Sancho Panza, 5, Pedro Muñoz (Ciudad Real)<br>Miércoles a domingo, 16:00–02:00<br>Cerrado lunes y martes</p><p class="mt-2 text-sm">Teléfonos (Demo): <a class="underline" href="tel:+34663430971">663 430 971</a></p></div>
+  <div><p class="font-bold text-hueso">Síguenos</p><div class="mt-2 flex gap-4 text-sm"><a class="underline hover:text-oro" href="https://instagram.com" target="_blank" rel="noopener">Instagram</a><a id="fb" class="hidden underline hover:text-oro" target="_blank" rel="noopener">Facebook</a></div></div>
  </div>
  <p class="mt-10 text-center text-xs text-hueso/50">© 2026 Mesón El Majano</p>
 </footer>
 
-<a id="wa" target="_blank" rel="noopener" aria-label="Escribir por WhatsApp" class="fixed bottom-5 right-5 z-40 grid h-14 w-14 place-items-center rounded-full bg-[#25D366] shadow-lg hover:scale-105"><svg width="30" height="30" viewBox="0 0 24 24" fill="#fff"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.200zm4.500-6.100c-.2-.1-1.500-.7-1.700-.8s-.4-.1-.6.100-.6.8-.8 1-.3.2-.5.100a6.700 6.700 0 0 1-3.300-2.900c-.2-.4.300-.4.700-1.300.1-.2 0-.3 0-.4l-.8-1.800c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.300 3 3 0 0 0-.9 2.200 5.200 5.200 0 0 0 1.100 2.800 11.800 11.800 0 0 0 4.500 4c1.700.7 2.300.7 3.100.6a2.600 2.600 0 0 0 1.700-1.200 2.100 2.100 0 0 0 .1-1.200c-.1-.1-.3-.2-.6-.3z"/></svg></a>
-
-<script>
-'use strict';
-const WA='34647514056', FB='https://www.facebook.com/p/Jesus-Meson-Majano-100063541002333';
-const $=s=>document.querySelector(s), el=(t,c,h)=>{const e=document.createElement(t);if(c)e.className=c;if(h!=null)e.innerHTML=h;return e};
-$('#wa').href='https://wa.me/'+WA+'?text='+encodeURIComponent('Hola, quisiera información sobre Mesón El Majano.');
-if(FB){const f=$('#fb');f.href=FB;f.classList.remove('hidden')}
-const bg=$('#burger'),mn=$('#mnav');
-bg.onclick=()=>{const o=mn.classList.toggle('hidden');mn.classList.toggle('flex',!o);bg.setAttribute('aria-expanded',String(!o))};
-mn.querySelectorAll('a').forEach(a=>a.onclick=()=>{mn.classList.add('hidden');mn.classList.remove('flex');bg.setAttribute('aria-expanded','false')});
-
-/* ---------- Carrusel ---------- */
-const S=[
-{img:'fachada',t:'30 años a la brasa',sub:'Mesón El Majano · 1996–2026',ing:'Barbacoa, grillé, pizzas y heladería de temporada.',tip:'Terraza interior y exterior, y menús para eventos.',badge:'30 aniversario'},
-{img:'brochetas',t:'Brochetas a la brasa',ing:'Carne de cerdo y ternera, pimiento rojo y brócoli.',tip:'Se asan a fuego medio para que la carne se dore sin resecarse. Maridaje: Ribera del Duero roble.'},
-{img:'calamares',t:'Calamares a la plancha',ing:'Calamar, aceite de oliva, ajo, perejil y limón.',tip:'En plancha muy caliente se sellan en segundos y quedan tiernos. Maridaje: Verdejo de Rueda bien frío.'},
-{img:'vitrina-carnes',t:'Carne fresca para la brasa',ing:'Chuletas, entrecot, secreto ibérico y costillar.',tip:'Las piezas esperan en vitrina hasta pasar por la brasa. Maridaje: Rioja.'}];
-const sw=$('#slides'),dt=$('#dots'),hero=$('#inicio');let cur=0,tm;
-S.forEach((s,i)=>{
- const d=el('div','sl absolute inset-0'+(i?'':' on'));
- d.setAttribute('role','group');d.setAttribute('aria-label',`${i+1} de ${S.length}`);
- d.innerHTML=`<img src="imagenes/${s.img}.jpg" alt="${s.t}" class="h-full w-full object-cover" ${i?'loading="lazy"':'fetchpriority="high"'} width="1400" height="1000">
- <div class="absolute inset-0 bg-gradient-to-t from-carbon via-carbon/55 to-carbon/20"></div>
- <div class="absolute inset-x-0 bottom-0 mx-auto max-w-4xl px-6 pb-20 pt-24 sm:px-16">
- ${s.badge?`<span class="mb-3 inline-block rounded-full bg-azul px-4 py-1 font-bold text-white">${s.badge}</span>`:''}
- <h1 class="font-slab text-4xl leading-tight sm:text-6xl">${s.t}</h1>
- ${s.sub?`<p class="mt-1 text-xl text-oro">${s.sub}</p>`:''}
- <p class="mt-4 text-lg"><strong class="text-oro">Ingredientes:</strong> ${s.ing}</p>
- <p class="mt-2 max-w-2xl text-hueso/85">${s.tip}</p>
- <a href="#reservas" class="mt-6 inline-block rounded-full bg-brasa px-6 py-3 font-bold text-white hover:bg-oro hover:text-carbon">Reservar Mesa</a></div>`;
- if(i)d.querySelector('h1').outerHTML=d.querySelector('h1').outerHTML.replace(/h1/g,'h2');
- sw.append(d);
- const b=el('button','h-3 w-3 rounded-full bg-white/50');b.setAttribute('aria-label','Ir a la diapositiva '+(i+1));b.onclick=()=>{go(i);auto()};dt.append(b);
-});
-function go(n){cur=(n+S.length)%S.length;[...sw.children].forEach((e,i)=>e.classList.toggle('on',i===cur));[...dt.children].forEach((b,i)=>{b.classList.toggle('bg-oro',i===cur);b.classList.toggle('w-8',i===cur);b.classList.toggle('bg-white/50',i!==cur)})}
-function auto(){clearInterval(tm);tm=setInterval(()=>go(cur+1),3000)}
-function stop(){clearInterval(tm)}
-$('#prev').onclick=()=>{go(cur-1);auto()};$('#next').onclick=()=>{go(cur+1);auto()};
-hero.onmouseenter=stop;hero.onmouseleave=auto;hero.addEventListener('touchstart',stop,{passive:true});hero.addEventListener('touchend',auto);hero.addEventListener('focusin',stop);hero.addEventListener('focusout',auto);
-document.addEventListener('keydown',e=>{if(e.key==='ArrowLeft'){go(cur-1);auto()}if(e.key==='ArrowRight'){go(cur+1);auto()}});
-go(0);auto();
-
-/* ---------- Menú ---------- */
-const M={
-'Brasa':`Chuletón de ternera (500 g)|23
-Entrecot de ternera (300 g)|14
-Secreto de cerdo ibérico|10
-Sepia para compartir|20
-Chuletas de cerdo|1.5
-Chuletas de cordero|2
-Contramuslo de pollo deshuesado con guarnición|7.5
-Costillar de cerdo marinado en salsa barbacoa|12
-Brocheta de churrasco con verduras|7
-Alón de pollo|1.5
-Pincho moruno|2.5
-Solomillo de cerdo con cebolla caramelizada y salsa a la pimienta|12
-Filete de emperador con ensalada|9
-Secreto ibérico con salsa a la pimienta|12
-Oreja a la brasa|9
-Forro a la brasa|8
-Plato mixto|8|2 chorizos, 2 morcillas y 2 pancetas
-Chorizo|1.5
-Morcilla|1.5
-Panceta|1.5
-Salchichas (4 uds.)|4
-Bocadillo|3.5
-Montado|2.5`,
-'Entrantes y raciones':`Jamón ibérico D.O.|15
-Queso manchego D.O.|6
-Tabla de ibéricos D.O.|12|Jamón, lomo, salchichón, chorizo y queso manchego
-Entremeses Majano|8|Ibéricos, calamares y ensaladilla rusa
-Jamón serrano|7
-Huevos rotos con jamón serrano|7.5
-Calamares a la romana con ensalada|12
-Sepia a la plancha con ensalada|12
-Patatas rizadas|3.75
-Patatas bravas con salsa alioli|5
-Tabla de patatas con 6 salsas|5.5
-Patatas deluxe|4.5|Gajo rebozado en ajo y pimentón dulce
-Nuggets de pollo (8 uds.)|5.5
-Alitas de pollo estilo salsa barbacoa|6`,
-'Ensaladas':`Mixta|4.5|Lechuga, tomate, cebolla, atún, huevo cocido y espárragos
-Majano|5|Lechuga, tomate, cebolla, atún, huevo cocido y brotes de soja
-De salmón|7|Lechuga, tomate, atún, huevo cocido y salmón
-De campo|3.5|Tomate, ajo, aceite de oliva y sal
-César|6.5|Lechuga, tomate, cebolla, pollo, queso, picatostes y salsa césar
-De frutos secos|7|Cogollos de lechuga, frutos secos, ventresca y pimientos de piquillo`,
-'Hamburguesas':`Normal|4|Ternera, lechuga, tomate y/o queso
-Pollo|4|Pollo rebozado, lechuga, tomate y/o queso
-Majano|6.5|Ternera, lechuga, tomate, queso y bacon
-Completa|7|Ternera o pollo, lechuga, tomate, queso, bacon, cebolla y huevo
-Buey|7|Buey, lechuga, tomate y/o queso
-Buey especial|7.5|Buey, lechuga, tomate, queso, jamón york y huevo
-Buey completa|8|Buey, lechuga, tomate, queso, bacon, cebolla y huevo`,
-'Pizzas':`Margherita|7|Tomate, mozzarella y orégano
-Napolitana|8|Rodajas de tomate, ajo y perejil, tomate, mozzarella y orégano
-Prosciutto|9|Jamón york, tomate, mozzarella y orégano
-Clásica|9|Bacon, tomate, mozzarella y orégano
-4 Quesos|9.5|Roquefort, cheddar, queso manchego y mozzarella
-Diavola|9.5|Chorizo, carne picada, tabasco, tomate y mozzarella
-Serrana|9|Jamón serrano, tomate y mozzarella
-Barbacoa|10|Carne picada, salsa barbacoa, tomate y mozzarella
-Majano|10|Pollo, salchichas, bacon, tomate y mozzarella
-Tonno|10|Atún, cebolla, tomate y mozzarella
-Crea tu pizza|11`,
-'Perritos y bocapizzas':`Hot dog|1.5
-Doberman|2.5|Carne picada y tabasco
-York Shire|2|Bacon
-Galgo|2|Queso
-Podenco|2|Bacon y queso
-Caniche|2|Cebolla
-Bocapizza de york|3.5
-Bocapizza de bacon|3.5
-Bocapizza de atún|3.5
-Bocapizza de barbacoa|3.5
-Bocapizza de moruno|3.5`,
-'Tostas y bocadillos':`Tosta de jamón ibérico D.O.|6|Tomate rallado y aceite de oliva
-Tosta de jamón york|5|Con queso Philadelphia y pimientos de piquillo
-Tosta de jamón catalana|5|Jamón serrano a la plancha y tomate rallado
-Tosta de solomillo de cerdo|7|Queso y cebolla caramelizada
-Tosta de ventresca|6|Pimientos de piquillo y mermelada de tomate
-Tosta de bacon|4.5|Con queso fundido
-Tosta de sepia a la plancha|8.5
-Tosta nórdica|6.5|Salmón, lechuga, tomate restregado y huevo cocido
-Tosta mar y montaña|6.5|Salmón, tomate confitado y aguacate
-Tosta vegetal|4|Lechuga, tomate, atún y espárragos blancos
-Tosta de lomo de cerdo|4|Lomo y queso manchego
-Sándwich especial|5|Jamón york, queso y bechamel fundida al horno
-Sándwich mixto|3.5
-Sándwich mixto con huevo|4.5
-Sándwich de pechuga de pollo|3.5
-Sándwich vegetal|3
-Sándwich de salmón|5
-Sándwich malla|3.5|Masa de hojaldre, bacon y queso
-Bocadillo de jamón ibérico D.O.|5.5
-Bocadillo de jamón serrano|4|Con queso manchego
-Bocadillo especial Majano|4.5|Lomo, chorizo, salchichón, jamón serrano, bacon y queso
-Bocadillo de calamares a la romana|6
-Bocadillo de rabas de calamar|5
-Bocadillo de bacon|3.5
-Bocadillo de lomo|4
-Bocadillo de pechuga de pollo|4
-Bocadillo vegetal|3.5
-Bocadillo de atún con tomate|4
-Bocadillo de tortilla francesa|4.5
-Bocadillo de tortilla al gusto|5
-Bocadillo de salmón|5.5`,
-'Postres':`Gofre|2.5|Sirope de chocolate o fresa y nata montada
-Tortitas|2.5
-Tarta|3.5
-Coulant de chocolate|3.5`,
-'Bebidas':`Mahou 5 Estrellas
-Mahou 0,0 Tostada
-Heineken
-Stella Artois
-Amstel
-El Águila sin filtrar
-Ribera del Duero roble|—|Altos de Ontañón
-Rioja|—|Ramón Bilbao, edición limitada
-Rueda Verdejo|—|Ramón Bilbao
-Sauvignon Blanc|—|VQ`};
-const tb=$('#tabs'),it=$('#items'),eur=n=>n.toLocaleString('es-ES',{minimumFractionDigits:2,maximumFractionDigits:2})+' €';
-function show(k){
- [...tb.children].forEach(b=>{const a=b.textContent===k;b.setAttribute('aria-selected',a);b.className='shrink-0 rounded-full px-4 py-2 font-bold '+(a?'bg-carbon text-oro':'bg-white text-carbon hover:bg-oro')});
- it.innerHTML=M[k].split('\n').map(l=>{const [n,p,d]=l.split('|');const pr=p&&p!=='—'?eur(parseFloat(p)):'';return `<li class="flex items-baseline justify-between gap-4 py-3"><div><p class="font-bold">${n}</p>${d?`<p class="text-sm text-carbon/65">${d}</p>`:''}</div><span class="shrink-0 font-bold text-brasa">${pr}</span></li>`}).join('')+(k==='Bebidas'?'<li class="py-3 text-sm text-carbon/70">Pregunta por los precios en el local.</li>':'');
-}
-Object.keys(M).forEach(k=>{const b=el('button','',k);b.setAttribute('role','tab');b.type='button';b.onclick=()=>show(k);tb.append(b)});
-show('Brasa');
-
-/* ---------- Galería ---------- */
-const G=[
-['brochetas','Brochetas','Se montan alternando carne y verdura y se asan a la brasa, girándolas para dorarlas por igual.'],
-['calamares','Calamares a la plancha','Plancha muy caliente con aceite, ajo y perejil; el limón se añade al final.'],
-['vitrina-carnes','Vitrina de carnes','Carne fresca que se sazona al momento y pasa por la brasa hasta el punto que prefieras.'],
-['chorizos','Chorizo y morcilla','Embutido a la brasa, servido en plato mixto o en bocadillo.'],
-['tarta-queso','Tarta de queso','Horneada a alta temperatura: tostada por fuera y cremosa por dentro.'],
-['tarta-chocolate','Tarta de chocolate','Bizcocho de chocolate relleno de crema y cubierto de perlas crujientes.'],
-['tarta-zanahoria','Tarta de zanahoria','Capas de bizcocho de zanahoria con crema de queso.'],
-['milhojas','Milhojas de chocolate','Láminas de chocolate y bizcocho en capas, espolvoreadas de cacao.'],
-['huevo-chocolate','Huevo de chocolate y mango','Huevo de chocolate sobre crema de chocolate blanco y mango.'],
-['aguacate-chocolate','Aguacate de chocolate','Postre con forma de aguacate, con chocolate y un toque de cítricos.'],
-['sundae','Copa de helado','Helado de vainilla con nata, almendra laminada y caramelo (heladería de temporada).'],
-['cervezas','Cervezas bien frías','Una buena selección para acompañar la brasa, también sin alcohol.']];
-const gl=$('#gal');
-G.forEach(([f,t,i])=>{
- const b=el('button','group relative aspect-square overflow-hidden rounded-xl text-left');b.type='button';b.setAttribute('aria-expanded','false');
- b.innerHTML=`<img src="imagenes/${f}.jpg" alt="${t}" loading="lazy" class="h-full w-full object-cover transition group-hover:scale-105"><span class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/90 to-transparent p-3 font-bold">${t}</span><span class="ov absolute inset-0 flex translate-y-full flex-col justify-center bg-carbon/90 p-4 transition group-hover:translate-y-0"><strong class="text-oro">${t}</strong><span class="mt-1 text-sm">${i}</span></span>`;
- b.onclick=()=>{const o=b.getAttribute('aria-expanded')==='true';b.setAttribute('aria-expanded',String(!o));b.querySelector('.ov').classList.toggle('translate-y-full',o)};
- gl.append(b);
-});
-
-/* ---------- Reservas ---------- */
-const pp=$('#pp'),hr=$('#hr'),er=$('#er'),ok=$('#ok');
-for(let i=1;i<=12;i++)pp.add(new Option(i+(i===1?' persona':' personas'),i));
-const hours=[];for(let m=16*60;m<=25*60;m+=30){const h=Math.floor(m/60)%24,mm=m%60;hours.push({m,t:String(h).padStart(2,'0')+':'+String(mm).padStart(2,'0')})}
-const today=new Date();today.setHours(0,0,0,0);
-let cy=today.getFullYear(),cmo=today.getMonth(),sel=null;
-const MES=['enero','febrero','marzo','abril','mayo','junio','julio','agosto','septiembre','octubre','noviembre','diciembre'];
-function fillHours(){
- const prev=hr.value;hr.innerHTML='';const now=new Date(),isT=sel&&sel.getTime()===today.getTime(),nm=now.getHours()*60+now.getMinutes();
- hours.filter(h=>!isT||h.m>nm+30).forEach(h=>hr.add(new Option(h.t+(h.m>=24*60?' (madrugada)':''),h.t)));
- if([...hr.options].some(o=>o.value===prev))hr.value=prev;
-}
-function cal(){
- $('#cm').textContent=MES[cmo]+' '+cy;const g=$('#cg');g.innerHTML='';
- const first=new Date(cy,cmo,1),off=(first.getDay()+6)%7,n=new Date(cy,cmo+1,0).getDate();
- for(let i=0;i<off;i++)g.append(el('span'));
- for(let d=1;d<=n;d++){
-  const dt=new Date(cy,cmo,d),wd=dt.getDay(),b=el('button','day rounded-lg py-2 hover:bg-oro',d);b.type='button';
-  b.disabled=dt<today||wd===1||wd===2;
-  if(sel&&sel.getTime()===dt.getTime()){b.className+=' bg-carbon text-oro font-bold';b.setAttribute('aria-pressed','true')}
-  b.setAttribute('aria-label',dt.toLocaleDateString('es-ES',{weekday:'long',day:'numeric',month:'long'}));
-  b.onclick=()=>{sel=dt;$('#fd').textContent=dt.toLocaleDateString('es-ES',{weekday:'long',day:'numeric',month:'long',year:'numeric'});$('#fd').classList.remove('text-carbon/70');fillHours();cal()};
-  g.append(b);
- }
- $('#cp').disabled=cy===today.getFullYear()&&cmo===today.getMonth();
-}
-$('#cp').onclick=()=>{cmo--;if(cmo<0){cmo=11;cy--}cal()};
-$('#cn').onclick=()=>{cmo++;if(cmo>11){cmo=0;cy++}cal()};
-fillHours();cal();
-$('#rf').addEventListener('submit',e=>{
- e.preventDefault();ok.classList.add('hidden');
- const name=$('#nm').value.replace(/[\u0000-\u001f]/g,' ').trim(),notes=$('#nt').value.replace(/[\u0000-\u001f]/g,' ').trim(),err=[];
- if(name.length<3||!/^[\p{L}\s'.-]+$/u.test(name))err.push('Escribe tu nombre completo (solo letras).');
- if(!sel)err.push('Elige un día en el calendario.');
- if(!hr.value)err.push('Elige una hora disponible.');
- if(err.length){er.textContent=err.join(' ');er.classList.remove('hidden');return}
- er.classList.add('hidden');
- const fecha=sel.toLocaleDateString('es-ES',{weekday:'long',day:'numeric',month:'long',year:'numeric'});
- const msg=`Hola, quiero reservar mesa en Mesón El Majano.\n\nNombre: ${name}\nPersonas: ${pp.value}\nFecha: ${fecha}\nHora: ${hr.value}\nNotas: ${notes||'Ninguna'}`;
- ok.textContent=`Reserva preparada para ${fecha} a las ${hr.value}. Se abrirá WhatsApp: pulsa «Enviar» para que el restaurante la reciba.`;ok.classList.remove('hidden');
- window.open('https://wa.me/'+WA+'?text='+encodeURIComponent(msg),'_blank','noopener');
-});
-</script>
-</body>
-</html>
